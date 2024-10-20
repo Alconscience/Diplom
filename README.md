@@ -16,8 +16,7 @@
 1. Склонировать проект `git clone https://github.com/....`
 2. Установить зависимости
 3. Запустить тесты с указанием пути к директории результатов тестирования `pytest --alluredir allure_files`
-4. Сформировать отчет `allure generate allure-files -o allure_report`
-5. Открыть отчет `allure open allure_report`
+4. Открыть отчет `allure serve allure_files`
 
 ## Стек
 
@@ -42,7 +41,6 @@
 - README.md - файл с документацией проекта, в котором описаны установка, использование, структура проекта и другие
   важные аспекты.
 - requirements.txt - файл с используемыми зависимостями
-- run.sh - файл с командами для автоматизированного прогона и сохранения результатов проведенных проверок
 
 ## Полезные ссылки
 
@@ -51,18 +49,15 @@
 
 ## Библиотеки
 
-- pip3 install pytest
-- pip3 install selenium
-- pip3 install webdriver-manager
-- pip3 install allure-pytest
-- pip3 install requests
+- pip install pytest
+- pip install selenium
+- pip install webdriver-manager
+- pip install allure-pytest
+- pip install requests
 
 ## Запуск тестов
 
-- `pytest | python3 -m pytest` (запуск тестов)
-- `python3 -m pytest -s` (вывод в консоль print)
-- `python3 -m pytest -v` (запуск тестов с подробным выводом в консоль)
-- `python3 pytest -m ui_test.py` (запуск только UI тестов)
-- `python3 pytest -m api_test.py` (запуск только API тестов)
-- `python3 -m pytest --alluredir allure-result` (запуск тестов и сохранение отчета о результатах тестирования)
-- `python3 allure serve allure-result/` (формирование отчета о тестировании)
+- `pytest -m ui_test.py` (запуск только UI тестов)
+- `pytest -m api_test.py` (запуск только API тестов)
+- `pytest --alluredir allure-result` (запуск тестов и сохранение отчета о результатах тестирования)
+- `allure serve allure-result/` (формирование отчета о тестировании)

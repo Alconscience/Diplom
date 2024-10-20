@@ -8,12 +8,12 @@ from web_pages.ResultPage import ResultPage
 
 
 @pytest.mark.ui_test
-@allure.title("Тест открытия страницы корзины")
-@allure.description("Проверка, что текст заголовка страницы корзины соответствует ожидаемому.")
+@allure.title("Тест открытия страницы Корзины")
+@allure.description("Проверка, что текст заголовка страницы Корзины соответствует ожидаемому.")
 @allure.feature("Проверка страниц")
 @allure.severity(allure.severity_level.NORMAL)
 def test_open_cart_page():
-    """Тест для открытия страницы корзины и проверки заголовка."""
+    """Тест для открытия страницы Корзины и проверки заголовка."""
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     try:
         main_page = MainPage(browser)
@@ -22,61 +22,61 @@ def test_open_cart_page():
         cart_page = ResultPage(browser)
         cart_text = cart_page.get_cart_text()
 
-        with allure.step("Проверка текста заголовка корзины"):
+        with allure.step("Проверка текста заголовка Корзины"):
             assert cart_text == "КОРЗИНА", f"Expected 'Корзина' but got '{cart_text}'"
     finally:
         browser.quit()
 
 
 @pytest.mark.ui_test
-@allure.title("Тест открытия страницы акций")
-@allure.description("Проверка, что текст заголовка страницы акций соответствует ожидаемому.")
+@allure.title("Тест открытия страницы Доставка и оплата")
+@allure.description("Проверка, что текст заголовка страницы Доставка и оплата соответствует ожидаемому.")
 @allure.feature("Проверка страниц")
 @allure.severity(allure.severity_level.NORMAL)
 def test_open_promotions_page():
-    """Тест для открытия страницы акций и проверки заголовка."""
+    """Тест для открытия страницы Доставка и оплата и проверки заголовка."""
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     try:
         main_page = MainPage(browser)
-        main_page.open_promotions()
+        main_page.open_delivery()
 
-        promotions_page = ResultPage(browser)
-        promotions_text = promotions_page.get_promotions_text()
+        delivery_page = ResultPage(browser)
+        delivery_text = delivery_page.get_delivery_text()
 
-        with allure.step("Проверка текста заголовка акций"):
-            assert promotions_text == "АКЦИИ", f"Expected 'АКЦИИ' but got '{promotions_text}'"
+        with allure.step("Проверка текста заголовка Доставка и оплата"):
+            assert delivery_text == "ДОСТАВКА И ОПЛАТА", f"Expected 'ДОСТАВКА И ОПЛАТА' but got '{delivery_text}'"
     finally:
         browser.quit()
 
 
 @pytest.mark.ui_test
-@allure.title("Тест открытия страницы распродаж")
-@allure.description("Проверка, что текст заголовка страницы распродаж соответствует ожидаемому.")
+@allure.title("Тест открытия страницы Подарочные сертификаты")
+@allure.description("Проверка, что текст заголовка страницы Подарочные сертификаты соответствует ожидаемому.")
 @allure.feature("Проверка страниц")
 @allure.severity(allure.severity_level.NORMAL)
 def test_open_sales_page():
-    """Тест для открытия страницы распродаж и проверки заголовка."""
+    """Тест для открытия страницы Подарочные сертификаты и проверки заголовка."""
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     try:
         main_page = MainPage(browser)
-        main_page.open_sales()
+        main_page.open_gift()
 
-        sales_page = ResultPage(browser)
-        sales_text = sales_page.get_sales_text()
+        gift_page = ResultPage(browser)
+        gift_text = gift_page.get_gift_text()
 
-        with allure.step("Проверка текста заголовка распродаж"):
-            assert sales_text == "РАСПРОДАЖА", f"Expected 'РАСПРОДАЖА' but got '{sales_text}'"
+        with allure.step("Проверка текста заголовка Книга - лучший подарок"):
+            assert gift_text == "Книга – лучший подарок", f"Expected 'Книга – лучший подарок' but got '{gift_text}'"
     finally:
         browser.quit()
 
 
 @pytest.mark.ui_test
-@allure.title("Тест открытия страницы магазинов")
-@allure.description("Проверка, что текст заголовка страницы магазинов соответствует ожидаемому.")
+@allure.title("Тест открытия страницы Магазинов")
+@allure.description("Проверка, что текст заголовка страницы Магазинов соответствует ожидаемому.")
 @allure.feature("Проверка страниц")
 @allure.severity(allure.severity_level.NORMAL)
 def test_open_shops_page():
-    """Тест для открытия страницы магазинов и проверки заголовка."""
+    """Тест для открытия страницы Магазинов и проверки заголовка."""
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     try:
         main_page = MainPage(browser)
@@ -85,19 +85,19 @@ def test_open_shops_page():
         shops_page = ResultPage(browser)
         shops_text = shops_page.get_shops_text()
 
-        with allure.step("Проверка текста заголовка магазинов"):
+        with allure.step("Проверка текста заголовка Магазинов"):
             assert shops_text == "НАШИ МАГАЗИНЫ", f"Expected 'НАШИ МАГАЗИНЫ' but got '{shops_text}'"
     finally:
         browser.quit()
 
 
 @pytest.mark.ui_test
-@allure.title("Тест открытия страницы журнала")
-@allure.description("Проверка, что текст заголовка страницы журнала соответствует ожидаемому.")
+@allure.title("Тест открытия страницы Что ещё почитать?")
+@allure.description("Проверка, что текст заголовка страницы Что ещё почитать? соответствует ожидаемому.")
 @allure.feature("Проверка страниц")
 @allure.severity(allure.severity_level.NORMAL)
 def test_open_articles_page():
-    """Тест для открытия страницы журнала и проверки заголовка."""
+    """Тест для открытия страницы Что ещё почитать? и проверки заголовка."""
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     try:
         main_page = MainPage(browser)
@@ -106,8 +106,8 @@ def test_open_articles_page():
         articles_page = ResultPage(browser)
         articles_text = articles_page.get_articles_text()
 
-        with allure.step("Проверка текста заголовка журнала"):
-            assert articles_text == "ЧИТАЙ-ЖУРНАЛ", f"Expected 'ЧИТАЙ-ЖУРНАЛ' but got '{articles_text}'"
+        with allure.step("Проверка текста заголовка Что ещё почитать?"):
+            assert articles_text == "ЧТО ЕЩЁ ПОЧИТАТЬ?", f"Expected 'ЧТО ЕЩЁ ПОЧИТАТЬ?' but got '{articles_text}'"
     finally:
         browser.quit()
 

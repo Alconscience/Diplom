@@ -14,63 +14,63 @@ class ResultPage:
         """
         self._driver: WebDriver = driver
 
-    @allure.step("Получить текст корзины")
+    @allure.step("Получить текст Корзины")
     def get_cart_text(self) -> str:
         """
-        Получить текст заголовка страницы корзины.
+        Получить текст заголовка страницы Корзины.
 
-        :return: Текст заголовка корзины.
+        :return: Текст заголовка Корзины.
         """
         cart_text = WebDriverWait(self._driver, 20).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "h1"))
         )
         return cart_text.text
 
-    @allure.step("Получить текст акций")
-    def get_promotions_text(self) -> str:
+    @allure.step("Получить текст Доставка и оплата")
+    def get_delivery_text(self) -> str:
         """
-        Получить текст заголовка страницы акций.
+        Получить текст заголовка страницы Доставка и оплата.
 
-        :return: Текст заголовка акций.
+        :return: Текст заголовка Доставка и оплата.
         """
-        promotions_text = WebDriverWait(self._driver, 20).until(
+        delivery_text = WebDriverWait(self._driver, 20).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "h1"))
         )
-        return promotions_text.text
+        return delivery_text.text
 
-    @allure.step("Получить текст распродажи")
-    def get_sales_text(self) -> str:
+    @allure.step("Получить текст Книга - лучший подарок")
+    def get_gift_text(self) -> str:
         """
-        Получить текст заголовка страницы распродаж.
+        Получить текст заголовка страницы Подарочные сертификаты.
 
-        :return: Текст заголовка распродаж.
+        :return: Текст заголовка Книга - лучший подарок.
         """
-        sales_text = WebDriverWait(self._driver, 20).until(
+        gift_text = WebDriverWait(self._driver, 40).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "h1"))
         )
-        return sales_text.text
+        return gift_text.text
 
-    @allure.step("Получить текст магазинов")
+    @allure.step("Получить текст Магазинов")
     def get_shops_text(self) -> str:
         """
-        Получить текст заголовка страницы магазинов.
+        Получить текст заголовка страницы Магазинов.
 
-        :return: Текст заголовка магазинов.
+        :return: Текст заголовка Магазинов.
         """
         shops_text = WebDriverWait(self._driver, 20).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "h1"))
         )
         return shops_text.text
 
-    @allure.step("Получить текст журнала")
+    @allure.step("Получить текст Что ещё почитать?")
     def get_articles_text(self) -> str:
         """
-        Получить текст заголовка страницы журнала.
+        Получить текст заголовка страницы Что ещё почитать?.
 
-        :return: Текст заголовка журнала.
+        :return: Текст заголовка Что ещё почитать?.
         """
         articles_text = WebDriverWait(self._driver, 20).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, "h1"))
+            EC.visibility_of_element_located((By.CSS_SELECTOR, 'h1[class="app-title app-title--mounted content-list-page__title app-title--header-1 app-title--caps"'))
         )
         return articles_text.text
 

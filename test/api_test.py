@@ -3,11 +3,12 @@ import allure
 from web_pages.CompanyApi import CompanyApi
 
 API_URL = "https://web-gate.chitai-gorod.ru/api/v1"
-BEARER_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjI2MDUxNDMsImlhdCI6MTcyMjQzNzE0MywiaXNzIjoiL2FwaS92MS9hdXRoL2Fub255bW91cyIsInN1YiI6ImFiM2E1NGVlYzQ1NTRlZWYyNThlMWVmZTY0NmVmZDhlNGRkYTI1ODM4NDkxMjg4OGQzMGVlOTZmZjhiYmQ1NWEiLCJ0eXBlIjoxMH0.jNspey2gzr8coBUZ7V6lniYq3txcS03y4u-AgmPVnUk"  # Замените на ваш токен
+BEARER_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjk0ODg5NzMsImlhdCI6MTcyOTMyMDk3MywiaXNzIjoiL2FwaS92MS9hdXRoL2Fub255bW91cyIsInN1YiI6IjQ3YjI5ZjdiODZhNGVlNzA1NGM4NjUxMTVkZDVlODNkNzBhMDAzNWY5M2EzOWYzYTgzNDgzYjgwMWMyN2EwNGIiLCJ0eXBlIjoxMH0.qhwdAazWuJPZEeeiQ1aAZrcpflSJPSVbsUXlBaawK98"  # Замените на ваш токен
 
-@allure.title("Добавить продукт в корзину")
-@allure.description("Тест проверяет функциональность добавления продукта в корзину")
-@allure.feature("Управление корзиной")
+
+@allure.title("Добавить продукт в Корзину")
+@allure.description("Тест проверяет функциональность добавления продукта в Корзину")
+@allure.feature("Управление Корзиной")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.api_test
 def test_add_product_to_cart():
@@ -21,7 +22,7 @@ def test_add_product_to_cart():
         }
     }
 
-    with allure.step("Добавление продукта в корзину"):
+    with allure.step("Добавление продукта в Корзину"):
         response = company_api.add_product_to_cart(product_data)
 
     with allure.step("Проверка кода состояния ответа"):
@@ -31,15 +32,15 @@ def test_add_product_to_cart():
         assert response.text == "", "Ожидался пустой ответ"
 
 
-@allure.title("Получить содержимое корзины")
-@allure.description("Тест проверяет функциональность получения содержимого корзины")
-@allure.feature("Управление корзиной")
+@allure.title("Получить содержимое Корзины")
+@allure.description("Тест проверяет функциональность получения содержимого Корзины")
+@allure.feature("Управление Корзиной")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.api_test
 def test_retrieve_cart_contents():
     company_api = CompanyApi(API_URL, BEARER_TOKEN)
 
-    with allure.step("Получение содержимого корзины"):
+    with allure.step("Получение содержимого Корзины"):
         response = company_api.get_cart_contents()
 
     with allure.step("Проверка кода состояния ответа"):
@@ -49,15 +50,15 @@ def test_retrieve_cart_contents():
         assert response.json(), "Ожидался непустой ответ"
 
 
-@allure.title("Очистить корзину")
-@allure.description("Тест проверяет функциональность очистки корзины")
-@allure.feature("Управление корзиной")
+@allure.title("Очистить Корзину")
+@allure.description("Тест проверяет функциональность очистки Корзины")
+@allure.feature("Управление Корзиной")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.api_test
 def test_clear_cart():
     company_api = CompanyApi(API_URL, BEARER_TOKEN)
 
-    with allure.step("Очистка корзины"):
+    with allure.step("Очистка Корзины"):
         response = company_api.clear_cart()
 
     with allure.step("Проверка кода состояния ответа"):
@@ -67,15 +68,15 @@ def test_clear_cart():
         assert response.text == '', "Ожидалось пустое тело ответа"
 
 
-@allure.title("Получить список магазинов")
-@allure.description("Тест проверяет функциональность получения списка магазинов")
-@allure.feature("Управление магазинами")
+@allure.title("Получить список Магазинов")
+@allure.description("Тест проверяет функциональность получения списка Магазинов")
+@allure.feature("Управление Магазинами")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.api_test
 def test_get_shops_list():
     company_api = CompanyApi(API_URL, BEARER_TOKEN)
 
-    with allure.step("Получение списка магазинов"):
+    with allure.step("Получение списка Магазинов"):
         response = company_api.get_shops()  # Нет параметров, так как тело не нужно
 
     with allure.step("Проверка кода состояния ответа"):

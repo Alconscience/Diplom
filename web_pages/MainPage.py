@@ -18,8 +18,8 @@ class MainPage:
         self._driver.get("https://www.chitai-gorod.ru/")
         self._driver.implicitly_wait(5)
         self._driver.maximize_window()
-
-    @allure.step("Открыть корзину")
+       
+    @allure.step("Открыть Корзину")
     def open_cart(self) -> None:
         """
         Кликнуть на кнопку "Корзина".
@@ -31,31 +31,31 @@ class MainPage:
         )
         cart_button.click()
 
-    @allure.step("Открыть страницу акций")
-    def open_promotions(self) -> None:
+    @allure.step("Открыть страницу Доставка и оплата")
+    def open_delivery(self) -> None:
         """
-        Кликнуть на кнопку "Акции".
+        Кликнуть на кнопку "Доставка и оплата".
 
         :return: None
         """
-        promotions_button = WebDriverWait(self._driver, 20).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'a[href="/promotions"]'))
+        delivery_button = WebDriverWait(self._driver, 20).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'a[href="/delivery"]'))
         )
-        promotions_button.click()
+        delivery_button.click()
 
-    @allure.step("Открыть страницу распродаж")
-    def open_sales(self) -> None:
+    @allure.step("Открыть страницу Подарочные сертификаты")
+    def open_gift(self) -> None:
         """
-        Кликнуть на кнопку "Распродажа".
+        Кликнуть на кнопку "Подарочные сертификаты".
 
         :return: None
         """
-        sales_button = WebDriverWait(self._driver, 20).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'a[href="/sales"]'))
+        gift_button = WebDriverWait(self._driver, 20).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'a[href="/certificate"]'))
         )
-        sales_button.click()
+        gift_button.click()
 
-    @allure.step("Открыть страницу магазинов")
+    @allure.step("Открыть страницу Магазинов")
     def open_shops(self) -> None:
         """
         Кликнуть на кнопку "Магазины".
@@ -67,15 +67,15 @@ class MainPage:
         )
         shops_button.click()
 
-    @allure.step("Открыть журнал")
+    @allure.step("Открыть страницу Что ещё почитать?")
     def open_articles(self) -> None:
         """
-        Кликнуть на кнопку "Читай журнал".
+        Кликнуть на кнопку "Что ещё почитать?".
 
         :return: None
         """
         articles_button = WebDriverWait(self._driver, 20).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'a[href="/articles"]'))
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'a[href="/collections"]'))
         )
         articles_button.click()
 
